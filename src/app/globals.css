@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+:root {
+  --color-navy-deep: #050816;
+  --color-navy: #0a1124;
+  --color-geaa-blue: #0078d4;
+  --color-electric-cyan: #00b5e2;
+  --color-geaa-purple: #6c3bff;
+  --color-light: #f5f7fa;
+  --color-ink: #0f172a;
+  --color-muted: #627288;
+}
+
+@theme inline {
+  --color-navy-deep: var(--color-navy-deep);
+  --color-navy: var(--color-navy);
+  --color-geaa-blue: var(--color-geaa-blue);
+  --color-electric-cyan: var(--color-electric-cyan);
+  --color-geaa-purple: var(--color-geaa-purple);
+  --color-light: var(--color-light);
+  --color-ink: var(--color-ink);
+  --color-muted: var(--color-muted);
+
+  --font-sans: "Manrope Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  --animate-flow: flow 3.6s linear infinite;
+  --animate-flow-slow: flow 6s linear infinite;
+  --animate-dash-x: dash-x 1.4s linear infinite;
+  --animate-dash-y: dash-y 1.4s linear infinite;
+  --animate-marquee: marquee 28s linear infinite;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+
+@keyframes dash-x {
+  to {
+    background-position: -16px 0;
+  }
+}
+
+@keyframes dash-y {
+  to {
+    background-position: 0 -16px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background: var(--color-light);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-geaa-blue);
+  color: white;
+}
+
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid var(--color-electric-cyan);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
